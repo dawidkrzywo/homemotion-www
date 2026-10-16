@@ -1,6 +1,6 @@
 // Dane kontaktowe w jednym miejscu — zmiana tutaj podmienia numer na całej stronie.
 const KONTAKT = {
-  telefon: "+48 000 000 000",
+  telefon: "+48 608 590 939",
   email: "kontakt@homemotion.pl",
 };
 
