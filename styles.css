@@ -58,6 +58,13 @@ a { color: inherit; }
   background: var(--window); color: var(--night);
 }
 .top-phone:hover { background: #ffbf55; }
+.top-ig {
+  display: grid; place-items: center; width: 44px; height: 44px; margin-left: 4px;
+  border-radius: 50%; color: inherit; transition: background .2s;
+}
+.top-ig svg { width: 24px; height: 24px; }
+.top-ig:hover { background: rgba(127,127,127,.18); }
+@media (max-width: 900px) { .top-ig { margin-left: auto; } }
 
 /* ---------- HERO ---------- */
 .hero {
