@@ -29,6 +29,11 @@ Strona firmowa Home Motion sp. z o.o. (fotografia i filmy nieruchomości, rolki,
   - kadr zastępczy JPG ~400 KB
 - Limit Cloudflare Pages: 25 MB na plik. Cel: 3–8 MB na wersję.
 
+## Logo
+- Znak: obrys domu (granat #121b2e albo biały) z pomarańczowym trójkątem play (#f0a93b) w środku; napis „Home Motion” Archivo 800. Projekt: plansza Design „Logo Home Motion”, wersja 1.
+- W nagłówku znak jest inline SVG ze `stroke="currentColor"` (biały nad filmem, granatowy po przewinięciu).
+- Pliki: `favicon.svg`, `favicon-32.png`, `apple-touch-icon.png` (główny katalog); `assets/logo/` — `znak-granat.svg`, `znak-bialy.svg`, `ikona.svg`, `ikona-instagram-1080.png`, `logo-poziome-granat.png`, `logo-poziome-bialy.png` (przezroczyste tło).
+
 ## Realizacje (sesje zdjęciowe)
 - Źródła: `E:\Home Motion\.Pliki źródłowe na stronę\Sesje\<nazwa>` na PC użytkownika.
 - Opisy z danych lokalu: Airtable (baza Home Motion → Nieruchomości, Kontakty), Notion „Sesje HM”, dokumenty na Drive. Na stronie bez nazwisk i numerów lokali — ulica, dzielnica, metraż, typ sesji, sprzedaż/wynajem.
