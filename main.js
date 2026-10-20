@@ -2,12 +2,14 @@
 const KONTAKT = {
   telefon: "+48 608 590 939",
   email: "kontakt@homemotion.pl",
+  instagram: "https://www.instagram.com/homemotion.pl/",
 };
 
 (() => {
   const tel = "tel:" + KONTAKT.telefon.replace(/\s/g, "");
   document.querySelectorAll("[data-phone]").forEach(a => { a.href = tel; a.textContent = KONTAKT.telefon; });
   document.querySelectorAll("[data-phone-btn]").forEach(a => { a.href = tel; });
+  document.querySelectorAll("[data-instagram]").forEach(a => { a.href = KONTAKT.instagram; });
 
   // Nagłówek: przezroczysty nad filmem, pełny po przewinięciu
   const top = document.querySelector(".top");

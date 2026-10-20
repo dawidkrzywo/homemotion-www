@@ -16,7 +16,7 @@ Strona firmowa Home Motion sp. z o.o. (fotografia i filmy nieruchomości, rolki,
 - Hosting LH.pl (Mango 30 GB) opłacony do 2027-01-26; plan: przenieść pocztę i zrezygnować.
 
 ## Treść
-- Telefon i e-mail: tylko w `main.js` (obiekt `KONTAKT`), podmienia się na całej stronie. Telefon: +48 608 590 939.
+- Telefon, e-mail i Instagram: w `main.js` (obiekt `KONTAKT`), podmienia się na całej stronie. Telefon: +48 608 590 939. Instagram: https://www.instagram.com/homemotion.pl/ (linki z atrybutem `data-instagram`).
 - Bez cennika na stronie. Grupa docelowa: agenci nieruchomości (pakiety promocyjne: zdjęcia, rolki, dron).
 - Planowane: sekcja filmów jak na dji.com/pl (pełnoekranowa plansza, przewijanie strzałką, bez pasków), portfolio realizacji, formularz wyceny.
 
