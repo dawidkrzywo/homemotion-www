@@ -30,7 +30,7 @@ Strona firmowa Home Motion sp. z o.o. (fotografia i filmy nieruchomości, rolki,
 - Limit Cloudflare Pages: 25 MB na plik. Cel: 3–8 MB na wersję.
 
 ## Czcionki
-- Nagłówki, liczby, telefon i napis logo: Michroma 400 (`--f-head`). Menu, opisy, przyciski, formularz: Geologica (`--f`, tekst 350, mocniejsze 600–700). Obie z Google Fonts, jeden link w `<head>`.
+- Napis logo: Michroma 400 (`--f-logo`), tylko w logo. Nagłówki, liczby, telefon: Red Hat Display 800 (`--f-head`). Menu, opisy, przyciski, formularz: Red Hat Text 400–700 (`--f`). Wszystkie z Google Fonts, jeden link w `<head>`. (Geologica + Michroma w nagłówkach odrzucone jako zbyt techniczne.)
 
 ## Logo
 - Znak: obrys domu (granat #121b2e albo biały) z pomarańczowym trójkątem play (#f0a93b) w środku; napis „Home Motion” Michroma 400 (jedyna grubość; wybrana zamiast Archivo, które było zbyt generyczne). Projekt: plansza Design „Logo Home Motion”, wersja 1.
