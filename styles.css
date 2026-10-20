@@ -46,7 +46,7 @@ a { color: inherit; }
 .top.solid { background: rgba(237,239,236,.94); color: var(--ink); padding-block: 12px; backdrop-filter: blur(8px); box-shadow: 0 1px 0 rgba(24,33,50,.08); }
 .logo {
   display: inline-flex; align-items: center; gap: 10px;
-  font-weight: 800; font-size: 21px; letter-spacing: -.02em; text-decoration: none; color: inherit;
+  font-family: "Michroma", var(--f); font-weight: 400; font-size: 15px; letter-spacing: .01em; text-decoration: none; color: inherit;
 }
 .logo-mark { width: 34px; height: 34px; flex: none; }
 .nav { display: flex; gap: 24px; margin-left: auto; }
