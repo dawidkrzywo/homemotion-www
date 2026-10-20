@@ -9,6 +9,9 @@ const KONTAKT = {
   const tel = "tel:" + KONTAKT.telefon.replace(/\s/g, "");
   document.querySelectorAll("[data-phone]").forEach(a => { a.href = tel; a.textContent = KONTAKT.telefon; });
   document.querySelectorAll("[data-phone-btn]").forEach(a => { a.href = tel; });
+  // Numer bez +48 (np. w nagłówku)
+  const krotki = KONTAKT.telefon.replace(/^\+48\s*/, "");
+  document.querySelectorAll("[data-phone-short]").forEach(a => { a.href = tel; a.setAttribute("aria-label", "Zadzwoń: " + krotki); const s = a.querySelector("span"); if (s) s.textContent = krotki; });
   document.querySelectorAll("[data-instagram]").forEach(a => { a.href = KONTAKT.instagram; });
 
   // Nagłówek: przezroczysty nad filmem, pełny po przewinięciu

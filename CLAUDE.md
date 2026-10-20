@@ -17,6 +17,7 @@ Strona firmowa Home Motion sp. z o.o. (fotografia i filmy nieruchomości, rolki,
 
 ## Treść
 - Telefon, e-mail i Instagram: w `main.js` (obiekt `KONTAKT`), podmienia się na całej stronie. Telefon: +48 608 590 939. Instagram: https://www.instagram.com/homemotion.pl/ (linki z atrybutem `data-instagram`).
+- Nagłówek (wariant 2 z planszy Design): menu Realizacje / Usługi / Jak pracuję, kreska, ikona Instagrama, słuchawka + numer bez +48 (`data-phone-short`), pomarańczowy przycisk „Umów sesję” → #kontakt. Na telefonie zostaje logo + Instagram (dzwonienie jest w dolnym pasku).
 - Bez cennika na stronie. Grupa docelowa: agenci nieruchomości (pakiety promocyjne: zdjęcia, rolki, dron).
 - Planowane: sekcja filmów jak na dji.com/pl (pełnoekranowa plansza, przewijanie strzałką, bez pasków), portfolio realizacji, formularz wyceny.
 
