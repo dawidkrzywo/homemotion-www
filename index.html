@@ -69,15 +69,56 @@
     <section class="work" id="realizacje">
       <div class="section-head">
         <h2>Realizacje</h2>
-        <p>Kilka ostatnich sesji. Najedź lub dotknij, żeby zobaczyć ruch.</p>
+        <p>Ostatnie sesje mieszkań. Kliknij, żeby obejrzeć całą galerię.</p>
       </div>
       <ul class="work-grid">
-        <li class="w w-wide"><figure><div class="ph ph-1"></div><figcaption><strong>Mieszkanie 3-pokojowe, Praga-Północ</strong><span>Film + zdjęcia, sprzedaż</span></figcaption></figure></li>
-        <li class="w"><figure><div class="ph ph-2"></div><figcaption><strong>Działka 737 m², Izabelin</strong><span>Dron + wizualizacja domu</span></figcaption></figure></li>
-        <li class="w"><figure><div class="ph ph-3"></div><figcaption><strong>Kawalerka, Targówek</strong><span>Zdjęcia, wynajem</span></figcaption></figure></li>
-        <li class="w w-tall"><figure><div class="ph ph-4"></div><figcaption><strong>Przelot FPV, lokal usługowy</strong><span>Jedno ujęcie, 60 s</span></figcaption></figure></li>
-        <li class="w"><figure><div class="ph ph-5"></div><figcaption><strong>Dom, Ząbki</strong><span>Zdjęcia o zmierzchu + dron</span></figcaption></figure></li>
+        <li class="w w-feature">
+          <button class="w-open" type="button" data-sesja="warszawski-swit" aria-label="Galeria: mieszkanie 51 m², Targówek, 14 zdjęć">
+            <img src="assets/sesje/warszawski-swit/01-m.webp" srcset="assets/sesje/warszawski-swit/01-m.webp 800w, assets/sesje/warszawski-swit/01.webp 1920w" sizes="(max-width: 640px) 100vw, 66vw" width="800" height="532" alt="Salon z różowym narożnikiem i ciemnymi ścianami ze sztukaterią" loading="lazy" decoding="async">
+            <span class="w-count">14 zdjęć</span>
+            <span class="w-cap">
+              <strong>Mieszkanie 2-pokojowe, 51 m², Targówek</strong>
+              <span class="w-meta">ul. Warszawski Świt · zdjęcia HDR · wynajem</span>
+              <span class="w-desc">Salon z aneksem, sypialnia, garderoba i balkon nad zielonym dziedzińcem. 2. piętro.</span>
+            </span>
+          </button>
+        </li>
+        <li class="w">
+          <button class="w-open" type="button" data-sesja="polna" aria-label="Galeria: mieszkanie 40 m², Śródmieście, 10 zdjęć">
+            <img src="assets/sesje/polna/01-m.webp" width="800" height="537" alt="Salon z granatową kanapą, parkietem w jodełkę i oknami na miasto" loading="lazy" decoding="async">
+            <span class="w-count">10 zdjęć</span>
+            <span class="w-cap">
+              <strong>Mieszkanie 2-pokojowe, 40 m², Śródmieście</strong>
+              <span class="w-meta">ul. Polna · zdjęcia HDR · wynajem</span>
+              <span class="w-desc">10. piętro z widokiem na miasto, parkiet w jodełkę, umeblowane pod najem.</span>
+            </span>
+          </button>
+        </li>
+        <li class="w">
+          <button class="w-open" type="button" data-sesja="skrajna" aria-label="Galeria: mieszkanie 56 m², Ząbki, 4 zdjęcia">
+            <img src="assets/sesje/skrajna/01-m.webp" width="800" height="532" alt="Jasny salon z okrągłym stołem i wyjściem na balkon" loading="lazy" decoding="async">
+            <span class="w-count">4 zdjęcia</span>
+            <span class="w-cap">
+              <strong>Mieszkanie 2-pokojowe, 56 m², Ząbki</strong>
+              <span class="w-meta">Garden Plaza II, ul. Skrajna · zdjęcia · sprzedaż</span>
+              <span class="w-desc">Po remoncie, jasny salon z aneksem i wyjściem na balkon. 2. piętro.</span>
+            </span>
+          </button>
+        </li>
       </ul>
+
+      <dialog class="lb" id="galeria" aria-label="Galeria zdjęć">
+        <div class="lb-top">
+          <p class="lb-title"></p>
+          <p class="lb-n" aria-live="polite"></p>
+          <button class="lb-x" type="button" aria-label="Zamknij galerię">×</button>
+        </div>
+        <div class="lb-stage">
+          <img class="lb-img" alt="">
+          <button class="lb-prev" type="button" aria-label="Poprzednie zdjęcie">‹</button>
+          <button class="lb-next" type="button" aria-label="Następne zdjęcie">›</button>
+        </div>
+      </dialog>
       <p class="after-work">Podobała ci się któraś sesja? <a href="#kontakt">Zapytaj o termin u siebie</a></p>
     </section>
 

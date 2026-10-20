@@ -36,6 +36,48 @@ const KONTAKT = {
   };
   if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) requestAnimationFrame(tick);
 
+  // Galeria sesji: pliki w assets/sesje/<folder>/NN.webp (duże) i NN-m.webp (miniatury)
+  const SESJE = {
+    "warszawski-swit": { tytul: "Mieszkanie 51 m², Targówek · ul. Warszawski Świt", zdjec: 14 },
+    "polna": { tytul: "Mieszkanie 40 m², Śródmieście · ul. Polna", zdjec: 10 },
+    "skrajna": { tytul: "Mieszkanie 56 m², Ząbki · Garden Plaza II", zdjec: 4 },
+  };
+  const lb = document.getElementById("galeria");
+  const lbImg = lb.querySelector(".lb-img");
+  const lbN = lb.querySelector(".lb-n");
+  let cur = null, idx = 0;
+  const plik = (s, i) => `assets/sesje/${s}/${String(i + 1).padStart(2, "0")}.webp`;
+  const pokaz = i => {
+    const n = SESJE[cur].zdjec;
+    idx = (i + n) % n;
+    lbImg.src = plik(cur, idx);
+    lbImg.alt = `${SESJE[cur].tytul}, zdjęcie ${idx + 1}`;
+    lbN.textContent = `${idx + 1} / ${n}`;
+    [idx + 1, idx - 1].forEach(j => { new Image().src = plik(cur, (j + n) % n); });
+  };
+  document.querySelectorAll("[data-sesja]").forEach(b => b.addEventListener("click", () => {
+    cur = b.dataset.sesja;
+    lb.querySelector(".lb-title").textContent = SESJE[cur].tytul;
+    lb.showModal();
+    pokaz(0);
+  }));
+  lb.querySelector(".lb-x").addEventListener("click", () => lb.close());
+  lb.querySelector(".lb-prev").addEventListener("click", () => pokaz(idx - 1));
+  lb.querySelector(".lb-next").addEventListener("click", () => pokaz(idx + 1));
+  lb.addEventListener("keydown", e => {
+    if (e.key === "ArrowRight") pokaz(idx + 1);
+    if (e.key === "ArrowLeft") pokaz(idx - 1);
+  });
+  let x0 = null;
+  const stage = lb.querySelector(".lb-stage");
+  stage.addEventListener("pointerdown", e => { x0 = e.clientX; });
+  stage.addEventListener("pointerup", e => {
+    if (x0 === null) return;
+    const dx = e.clientX - x0; x0 = null;
+    if (Math.abs(dx) > 50) pokaz(idx + (dx < 0 ? 1 : -1));
+  });
+  lb.addEventListener("close", () => { lbImg.removeAttribute("src"); });
+
   // Formularz: na razie otwiera maila z wypełnioną treścią (bez serwera)
   const form = document.getElementById("quote");
   form.addEventListener("submit", e => {
