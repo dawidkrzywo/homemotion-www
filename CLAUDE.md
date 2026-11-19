@@ -46,6 +46,14 @@ Strona firmowa Home Motion sp. z o.o. (fotografia i filmy nieruchomości, rolki,
 - Nowa sesja jednym poleceniem: `python3 narzedzia/dodaj-sesje.py <folder-ze-zdjeciami> --folder <nazwa> --miasto Warszawa --dzielnica Mokotów --ulica "ul. Puławska"` (konwertuje zdjęcia i dopisuje sesję do listy).
 - Pomijać kadry ze znakiem wodnym (Fotello, gwiazdka AI) i duplikaty.
 
+## Galeria (homemotion.pl/galeria)
+- Portfolio bez opisów, dwie zakładki: Home Motion (`#home-motion`) i drones.dk (`#drones-dk`). Okna o dowolnym rozmiarze i kadrze, na telefonie jedno pod drugim; klik otwiera podgląd.
+- Edytor (wgrywanie „+”, przesuwanie, rozmiar, kadr) jest na claude.ai: https://claude.ai/artifact/PVBg4v2G3iipEqa2F8QMWe (prywatny, limit 20 MB na plik). Strona na homemotion.pl tylko wyświetla.
+- Na hasło „opublikuj galerię”: przeczytać artefakt (Artifact `read`), skopiować blok `g-data` do pliku JSON, pobrać każdy plik po id (`read` z `path` = id pliku, po jednym na wywołanie), potem
+  `python3 narzedzia/galeria-sync.py <g-data.json> <folder z pobranymi plikami>` → commit + push.
+- Skrypt robi: zdjęcia `assets/galeria/<id>.webp` (1920 px) i `<id>-m.webp` (800 px); filmy `<id>.mp4` (H.264 1080p), `<id>-720.mp4`, kadr `<id>.jpg`; układ `galeria/uklad.json`; usuwa pliki, których nie ma już w edytorze.
+- Kod strony: `galeria/index.html`, `galeria/galeria.css`, `galeria/galeria.js`.
+
 ## Zasady pracy
 - Po każdej zmianie: commit + push na `main`, potem sprawdzić homemotion-www.pages.dev.
 - Wypisywać użytkownikowi, co się zmieniło na stronie (prostym językiem).

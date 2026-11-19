@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Galeria · Home Motion</title>
+  <meta name="description" content="Zdjęcia i filmy nieruchomości oraz ujęcia z drona. Home Motion, Warszawa.">
+  <meta property="og:title" content="Galeria · Home Motion">
+  <meta property="og:description" content="Zdjęcia i filmy nieruchomości oraz ujęcia z drona.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500..900&family=Red+Hat+Text:wght@400..700&family=Michroma&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#0c1220">
+  <link rel="stylesheet" href="/galeria/galeria.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="bar">
+      <a class="logo" href="/" aria-label="Home Motion, strona główna">
+        <svg class="logo-mark" viewBox="0 0 100 100" aria-hidden="true"><path d="M14 46 L50 16 L86 46 V86 H14 Z" fill="none" stroke="currentColor" stroke-width="8" stroke-linejoin="round"/><path d="M44 46 L63 58 L44 70 Z" fill="#f0a93b" stroke="#f0a93b" stroke-width="3" stroke-linejoin="round"/></svg>
+        <span>Home&nbsp;Motion</span>
+      </a>
+      <nav class="tabs" id="tabs" aria-label="Galerie"></nav>
+    </header>
+    <main class="stage">
+      <div class="canvas" id="canvas"></div>
+      <p class="empty" id="empty" hidden>Wkrótce</p>
+    </main>
+  </div>
+
+  <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Podgląd">
+    <div class="lb-media" id="lbm"></div>
+    <button class="lb-btn lb-close" id="lbx" type="button" aria-label="Zamknij">×</button>
+    <button class="lb-btn lb-prev" id="lbp" type="button" aria-label="Poprzedni">‹</button>
+    <button class="lb-btn lb-next" id="lbn" type="button" aria-label="Następny">›</button>
+    <span class="lb-count" id="lbc"></span>
+  </div>
+
+  <script src="/galeria/galeria.js" defer></script>
+</body>
+</html>
