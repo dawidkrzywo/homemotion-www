@@ -183,19 +183,22 @@ section:not(.hero):not(.facts) { padding: clamp(72px, 10vw, 128px) var(--gutter)
 .w-open img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
 .w-open:hover img { transform: scale(1.04); }
 @media (prefers-reduced-motion: reduce) { .w-open img { transition: none; } .w-open:hover img { transform: none; } }
-.w-count {
-  position: absolute; top: 14px; right: 14px; padding: 6px 10px; border-radius: 4px;
-  background: rgba(18,27,46,.72); color: #fff; font-size: 13px; font-weight: 700; letter-spacing: .02em;
-}
 .w-cap {
-  position: absolute; left: 0; right: 0; bottom: 0; padding: 56px 18px 16px;
-  color: #fff; background: linear-gradient(transparent, rgba(18,27,46,.9));
-  display: flex; flex-direction: column; gap: 3px;
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 64px 20px 18px;
+  color: #fff; background: linear-gradient(transparent, rgba(18,27,46,.55) 45%, rgba(18,27,46,.85));
+  display: flex; flex-direction: column; gap: 4px; text-shadow: 0 1px 12px rgba(0,0,0,.35);
 }
-.w-cap strong { font-size: 17px; line-height: 1.25; }
-.w-meta { font-size: 14px; opacity: .85; }
-.w-desc { font-size: 14px; opacity: .85; max-width: 52ch; }
-.w:not(.w-feature) .w-desc { display: none; }
+.w-loc { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; opacity: .82; }
+.w-cap strong { font-family: var(--f-head); font-weight: 800; font-size: 20px; line-height: 1.15; letter-spacing: -.01em; }
+.w-feature .w-cap { padding: 80px 28px 26px; }
+.w-feature .w-cap strong { font-size: clamp(22px, 2.4vw, 32px); }
+.w-more {
+  display: block; margin: 28px auto 0; padding: 14px 26px; border: 1.5px solid var(--ink); border-radius: 6px;
+  background: transparent; color: var(--ink); font: 700 15px/1 var(--f); cursor: pointer;
+}
+.w-more:hover { background: var(--ink); color: #fff; }
+.w-more:focus-visible { outline: 3px solid var(--window); outline-offset: 3px; }
+.w-more[hidden] { display: none; }
 
 /* Galeria */
 .lb { width: 100vw; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: #0b111d; color: #fff; }
@@ -298,7 +301,6 @@ section:not(.hero):not(.facts) { padding: clamp(72px, 10vw, 128px) var(--gutter)
   .facts dl { grid-template-columns: 1fr; gap: 16px; }
   .work-grid { grid-template-columns: 1fr; grid-auto-rows: 260px; }
   .w-feature { grid-column: auto; grid-row: auto; }
-  .w-feature .w-desc { display: none; }
   .lb-stage { padding: 0 0 16px; }
   .lb-prev, .lb-next { top: auto; bottom: 20px; transform: none; background: rgba(11,17,29,.6); }
   .svc-list, .steps { grid-template-columns: 1fr; }

@@ -83,43 +83,11 @@
     <section class="work" id="realizacje">
       <div class="section-head">
         <h2>Realizacje</h2>
-        <p>Ostatnie sesje mieszkań. Kliknij, żeby obejrzeć całą galerię.</p>
+        <p>Kliknij zdjęcie, żeby obejrzeć całą sesję.</p>
       </div>
-      <ul class="work-grid">
-        <li class="w w-feature">
-          <button class="w-open" type="button" data-sesja="warszawski-swit" aria-label="Galeria: mieszkanie 51 m², Targówek, 14 zdjęć">
-            <img src="assets/sesje/warszawski-swit/01-m.webp" srcset="assets/sesje/warszawski-swit/01-m.webp 800w, assets/sesje/warszawski-swit/01.webp 1920w" sizes="(max-width: 640px) 100vw, 66vw" width="800" height="532" alt="Salon z różowym narożnikiem i ciemnymi ścianami ze sztukaterią" loading="lazy" decoding="async">
-            <span class="w-count">14 zdjęć</span>
-            <span class="w-cap">
-              <strong>Mieszkanie 2-pokojowe, 51 m², Targówek</strong>
-              <span class="w-meta">ul. Warszawski Świt · zdjęcia HDR · wynajem</span>
-              <span class="w-desc">Salon z aneksem, sypialnia, garderoba i balkon nad zielonym dziedzińcem. 2. piętro.</span>
-            </span>
-          </button>
-        </li>
-        <li class="w">
-          <button class="w-open" type="button" data-sesja="polna" aria-label="Galeria: mieszkanie 40 m², Śródmieście, 10 zdjęć">
-            <img src="assets/sesje/polna/01-m.webp" width="800" height="537" alt="Salon z granatową kanapą, parkietem w jodełkę i oknami na miasto" loading="lazy" decoding="async">
-            <span class="w-count">10 zdjęć</span>
-            <span class="w-cap">
-              <strong>Mieszkanie 2-pokojowe, 40 m², Śródmieście</strong>
-              <span class="w-meta">ul. Polna · zdjęcia HDR · wynajem</span>
-              <span class="w-desc">10. piętro z widokiem na miasto, parkiet w jodełkę, umeblowane pod najem.</span>
-            </span>
-          </button>
-        </li>
-        <li class="w">
-          <button class="w-open" type="button" data-sesja="skrajna" aria-label="Galeria: mieszkanie 56 m², Ząbki, 4 zdjęcia">
-            <img src="assets/sesje/skrajna/01-m.webp" width="800" height="532" alt="Jasny salon z okrągłym stołem i wyjściem na balkon" loading="lazy" decoding="async">
-            <span class="w-count">4 zdjęcia</span>
-            <span class="w-cap">
-              <strong>Mieszkanie 2-pokojowe, 56 m², Ząbki</strong>
-              <span class="w-meta">Garden Plaza II, ul. Skrajna · zdjęcia · sprzedaż</span>
-              <span class="w-desc">Po remoncie, jasny salon z aneksem i wyjściem na balkon. 2. piętro.</span>
-            </span>
-          </button>
-        </li>
-      </ul>
+      <!-- Kafelki tworzy main.js z listy SESJE — nowa sesja = jedna linijka tam -->
+      <ul class="work-grid" id="sesje"></ul>
+      <button class="w-more" type="button" hidden>Pokaż wszystkie sesje</button>
 
       <dialog class="lb" id="galeria" aria-label="Galeria zdjęć">
         <div class="lb-top">

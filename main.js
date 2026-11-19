@@ -41,28 +41,49 @@ const KONTAKT = {
   };
   if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) requestAnimationFrame(tick);
 
-  // Galeria sesji: pliki w assets/sesje/<folder>/NN.webp (duże) i NN-m.webp (miniatury)
-  const SESJE = {
-    "warszawski-swit": { tytul: "Mieszkanie 51 m², Targówek · ul. Warszawski Świt", zdjec: 14 },
-    "polna": { tytul: "Mieszkanie 40 m², Śródmieście · ul. Polna", zdjec: 10 },
-    "skrajna": { tytul: "Mieszkanie 56 m², Ząbki · Garden Plaza II", zdjec: 4 },
-  };
+  // Galeria sesji: pliki w assets/sesje/<folder>/NN.webp (duże) i NN-m.webp (miniatury), 01 = okładka.
+  // NOWA SESJA: wrzuć zdjęcia do assets/sesje/<folder>/ i dopisz linijkę NA GÓRZE listy (najnowsza pierwsza).
+  // dzielnica może być pusta ("") — np. dla Ząbek, Marek.
+  const SESJE = [
+    { folder: "warszawski-swit", miasto: "Warszawa", dzielnica: "Targówek",   ulica: "ul. Warszawski Świt", zdjec: 14 },
+    { folder: "polna",           miasto: "Warszawa", dzielnica: "Śródmieście", ulica: "ul. Polna",          zdjec: 10 },
+    { folder: "skrajna",         miasto: "Ząbki",    dzielnica: "",            ulica: "ul. Skrajna",        zdjec: 4 },
+  ];
+  const NA_START = 6; // tyle kafelków widać od razu, reszta pod „Pokaż wszystkie”
+  const miejsce = s => [s.miasto, s.dzielnica].filter(Boolean).join(" · ");
+  const tytul = s => [s.ulica, s.dzielnica, s.miasto].filter(Boolean).join(", ");
+  const siatka = document.getElementById("sesje");
+  siatka.innerHTML = SESJE.map((s, i) => {
+    const okl = `assets/sesje/${s.folder}/01`;
+    return `<li class="w${i === 0 ? " w-feature" : ""}"${i >= NA_START ? " hidden" : ""}>
+      <button class="w-open" type="button" data-i="${i}" aria-label="Galeria: ${tytul(s)}, ${s.zdjec} zdjęć">
+        <img src="${okl}-m.webp" srcset="${okl}-m.webp 800w, ${okl}.webp 1920w" sizes="${i === 0 ? "(max-width: 640px) 100vw, 66vw" : "(max-width: 640px) 100vw, (max-width: 900px) 50vw, 33vw"}" alt="" loading="lazy" decoding="async">
+        <span class="w-cap"><span class="w-loc">${miejsce(s)}</span><strong>${s.ulica}</strong></span>
+      </button>
+    </li>`;
+  }).join("");
+  const wiecej = document.querySelector(".w-more");
+  if (SESJE.length > NA_START) {
+    wiecej.hidden = false;
+    wiecej.textContent = `Pokaż wszystkie sesje (${SESJE.length})`;
+    wiecej.addEventListener("click", () => { siatka.querySelectorAll("li[hidden]").forEach(li => { li.hidden = false; }); wiecej.hidden = true; });
+  }
   const lb = document.getElementById("galeria");
   const lbImg = lb.querySelector(".lb-img");
   const lbN = lb.querySelector(".lb-n");
   let cur = null, idx = 0;
-  const plik = (s, i) => `assets/sesje/${s}/${String(i + 1).padStart(2, "0")}.webp`;
+  const plik = (s, i) => `assets/sesje/${s.folder}/${String(i + 1).padStart(2, "0")}.webp`;
   const pokaz = i => {
     const n = SESJE[cur].zdjec;
     idx = (i + n) % n;
-    lbImg.src = plik(cur, idx);
-    lbImg.alt = `${SESJE[cur].tytul}, zdjęcie ${idx + 1}`;
+    lbImg.src = plik(SESJE[cur], idx);
+    lbImg.alt = `${tytul(SESJE[cur])}, zdjęcie ${idx + 1}`;
     lbN.textContent = `${idx + 1} / ${n}`;
-    [idx + 1, idx - 1].forEach(j => { new Image().src = plik(cur, (j + n) % n); });
+    [idx + 1, idx - 1].forEach(j => { new Image().src = plik(SESJE[cur], (j + n) % n); });
   };
-  document.querySelectorAll("[data-sesja]").forEach(b => b.addEventListener("click", () => {
-    cur = b.dataset.sesja;
-    lb.querySelector(".lb-title").textContent = SESJE[cur].tytul;
+  siatka.querySelectorAll("[data-i]").forEach(b => b.addEventListener("click", () => {
+    cur = +b.dataset.i;
+    lb.querySelector(".lb-title").textContent = tytul(SESJE[cur]);
     lb.showModal();
     pokaz(0);
   }));

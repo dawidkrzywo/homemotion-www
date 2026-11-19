@@ -40,9 +40,10 @@ Strona firmowa Home Motion sp. z o.o. (fotografia i filmy nieruchomości, rolki,
 
 ## Realizacje (sesje zdjęciowe)
 - Źródła: `E:\Home Motion\.Pliki źródłowe na stronę\Sesje\<nazwa>` na PC użytkownika.
-- Opisy z danych lokalu: Airtable (baza Home Motion → Nieruchomości, Kontakty), Notion „Sesje HM”, dokumenty na Drive. Na stronie bez nazwisk i numerów lokali — ulica, dzielnica, metraż, typ sesji, sprzedaż/wynajem.
-- Pliki: `assets/sesje/<slug>/NN.webp` (1920 px, q80) i `NN-m.webp` (800 px, q74); kolejność = kolejność w galerii, `01` to okładka.
-- Nowa sesja: kafelek w `index.html` (sekcja `#realizacje`, `data-sesja="<slug>"`) + wpis w obiekcie `SESJE` w `main.js` (tytuł, liczba zdjęć).
+- Na stronie tylko: miasto, dzielnica (może być pusta, np. Ząbki), ulica. Bez metrażu, opisów, nazwisk i numerów lokali.
+- Pliki: `assets/sesje/<folder>/NN.webp` (1920 px, q80) i `NN-m.webp` (800 px, q74); kolejność = kolejność w galerii, `01` to okładka.
+- Kafelki generuje `main.js` z listy `SESJE` (najnowsza na górze; pierwsza = duży kafelek). Pierwsze 6 widać od razu, reszta pod przyciskiem „Pokaż wszystkie sesje”. W `index.html` nic nie trzeba dopisywać.
+- Nowa sesja jednym poleceniem: `python3 narzedzia/dodaj-sesje.py <folder-ze-zdjeciami> --folder <nazwa> --miasto Warszawa --dzielnica Mokotów --ulica "ul. Puławska"` (konwertuje zdjęcia i dopisuje sesję do listy).
 - Pomijać kadry ze znakiem wodnym (Fotello, gwiazdka AI) i duplikaty.
 
 ## Zasady pracy
